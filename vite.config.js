@@ -30,6 +30,20 @@ import mix from 'laravel-mix';
 import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';
 
+const { createVuePlugin } = require('vite-plugin-vue2')
+
+module.exports = {
+  plugins: [
+    createVuePlugin()
+  ],
+  server: {
+    base: '/' // especifica aquí la URL base de tu aplicación
+  },
+  build: {
+    base: '/' // especifica aquí la URL base de tu aplicación
+  }
+}
+
 mix.js('resources/js/app.js', 'public/js')
     .vue()
     .alias({
